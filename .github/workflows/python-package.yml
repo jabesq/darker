@@ -36,8 +36,6 @@ jobs:
       if: matrix.os-package-manager == 'nix'
       with:
         nix_path: nixpkgs=channel:nixos-21.11
-    - run: nix-build
-      if: matrix.os-package-manager == 'nix'
 
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v2
