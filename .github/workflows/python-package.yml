@@ -29,7 +29,7 @@ jobs:
           python -m venv venv
           venv/bin/pip install -e '.[isort,test]'
           venv/bin/pytest
-        '
+        ' ./default.nix
 
   build:
 
