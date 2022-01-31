@@ -213,4 +213,4 @@ def test_opcodes_to_edit_linenums(context_lines, expect):
 def test_opcodes_to_edit_linenums_empty_opcodes():
     result = list(opcodes_to_edit_linenums([], context_lines=0))
 
-    assert result == []
+    assert not result

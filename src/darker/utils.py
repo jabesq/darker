@@ -180,7 +180,7 @@ def debug_dump(black_chunks: List[DiffChunk], edited_linenums: List[int]) -> Non
             linenum = offset + delta
             edited = "*" if linenum in edited_linenums else " "
             print(f"{edited}-{linenum:4} {old_line}")
-        for _, new_line in enumerate(new_lines):
+        for new_line in new_lines:
             print(f" +     {new_line}")
     print(80 * "-")
 
@@ -196,10 +196,7 @@ def joinlines(lines: Iterable[str], newline: str = "\n") -> str:
 
 def get_path_ancestry(path: Path) -> Iterable[Path]:
     reverse_parents = reversed(path.parents)
-    if path.is_dir():
-        return chain(reverse_parents, [path])
-    else:
-        return reverse_parents
+    return chain(reverse_parents, [path]) if path.is_dir() else reverse_parents
 
 
 def get_common_root(paths: Iterable[Path]) -> Path:
