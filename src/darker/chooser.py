@@ -60,10 +60,9 @@ def choose_lines(
 ) -> Generator[str, None, None]:
     """Choose formatted chunks for edited areas, original chunks for non-edited"""
     for original_lines_offset, original_lines, formatted_lines in black_chunks:
-        chunk_has_edits = _any_item_in_range(
+        if chunk_has_edits := _any_item_in_range(
             edit_linenums, original_lines_offset, len(original_lines)
-        )
-        if chunk_has_edits:
+        ):
             choice = (
                 "unmodified" if formatted_lines == original_lines else "reformatted"
             )
