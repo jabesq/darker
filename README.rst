@@ -530,16 +530,16 @@ Create a file named ``.github/workflows/darker.yml`` inside your repository with
 .. code-block:: yaml
 
    name: Lint
-   
+
    on: [push, pull_request]
-   
+
    jobs:
      lint:
        runs-on: ubuntu-latest
        steps:
          - uses: actions/checkout@v2
            with:
-             fetch-depth: 0 
+             fetch-depth: 0
          - uses: akaihola/darker@1.4.0
 
 We recommend the use per version tags.
